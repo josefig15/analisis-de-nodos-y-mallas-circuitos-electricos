@@ -1,0 +1,92 @@
+Mapa de datos
+	MAT[A]	Matriz de ingreso de datos
+	MAT[B]	Matriz de conexiones
+	MAT[C]	Matriz de Ecuaciones
+	
+Nomenclatura:
+	SNN 	Sper nodo Normal , NO tiene una terminal a tierra 
+	SNS	Super Nodo Simple, SI tiene un terminal a tierra
+
+***************************************************************************************************
+ALGORITMO:
+
+0) 	Se necesita haber borrado las conexiones de Los resistores y fuentes de corriente previamente. 
+	Dejando solo las conexiones de los super nodos normales en MAT [B] conexiones.
+
+1) 	Se crea un vector L3 vacio de la misma longitud que MAT[A] para escribir SNN de 0 o 1 conexiones operados.
+	Cada vez que se opera un SNN con un numero de conexiones menor que 2 se escribe 1 en la misma poscion de L3.
+
+2) 	Se Busca los SNN en MAT [A] no operados en L3
+
+		* condicion de operacion:
+			T == 3				-> Tipo Fuente de voltaje 
+			P=/0 AND N=/0		-> Positivo y Negativo no conectado a tierra
+			L3(Fila MAT[A])=0	-> Super Nodo Normal No operado en vector L3 
+
+3) 	Operar Super nodos Normales de una conexion o ninguna conexion con otro super nodo normal.
+
+		3.1	Se limpian los Indicadors de conexion SNN
+			0 -> I Conexion en nodo Positivo 
+			0 -> J Conexion en nodo Negativo
+			
+			Se limpian los Punteros de operacion de SNN
+			0 -> G Sumatoria filas SNN  ( Posicion Fila MAT[C] )
+			0 -> H Ecuacion de SNN		( Posicion Fila MAT[C] )
+			
+		3.1 Se busca en las columnas Positivo y negativo del SNN en MAT[B] si hay otro 1 y diferente de la misma fila del SNN.
+	
+		3.2 Se escribe 1 en los Indicadores de conexion con otro SNN.
+			I -> Conexion en nodo Positivo 
+			J -> Conexion en nodo Negativo
+	
+		3.3 Los SNN de dos conexiones son ignorados (I==1 AND J==1).	
+		
+			* Incrementa contador de SNN de dos conexiones (D)	
+		
+			* No realiza operacion de SNN
+
+		3.4 Si hay una conexion o cero conexiones ( I==1 AND J==0 OR I==0 AND J==1 OR I==0 AND J==0 ) 
+		
+			* Incrementa contador de SNN de una conexion (U)
+		
+			* Escribe 1 en la fila del SNN en L3 (vector de SNN operados)
+
+			* Se crea una estructura de decision para asignar los punteros de operacion de Super Nodos Normales.
+
+			* Cuando No hay Super Nodo Simple en uno de los Nodos (L2(P)!=0 AND L2(N)!=0)
+				
+					Operacion de Super Nodo Normal:
+						- La sumatoria de filas se guarda en la fila donde si hay conexion
+						- La ecuacion de SN     se guarda en la fila donde no hay conexion 
+			
+					Conexion en Nodo Positivo (I==1 AND J==0 )
+						Positivo (P) -> G puntero escritura sumatoria 
+						Negativo (N) -> H puntero escritura ecuacion
+ 				
+					Conexion en Nodo Negativo (J==1 AND J==0) 
+						Negativo (N) -> G puntero escritura sumatoria 
+						Positivo (P) -> H puntero escritura ecuacion
+
+					No hay una conexion (I==0 AND J==0) 
+						Negativo (N) -> G puntero escritura sumatoria 
+						Positivo (P) -> H puntero escritura ecuacion
+				
+			* Cuando Si hay Super Nodo Simple en uno de los Nodos (L2(P)==1 OR L2(N)==1)
+					
+					Operacion de Super Nodo Normal:
+						- La ecuacion de SN  se guarda en la fila donde no hay super nodo simple.
+						- Se escribe 1 en la posiscion del nodo donde se escribio la ecuacion del SNN en L2
+					
+					Super Nodo Simple en Nodo Positivo (L2(P)==1 AND L2(N)==0)
+						Negativo (N) -> H puntero escritura ecuacion (Nodo disponible).
+
+					Super Nodo Simple en Nodo Negativo (L2(P)==0 AND L2(N)==1)
+						Positivo (P) -> H puntero escritura ecuacion (Nodo disponible).
+						
+						
+3) Poner 0 en las conexiones de la posision del SN en la matriz de conexiones MAT[B]
+
+	* Escribe cero en las posiciones mat B que esten a 1 y L3 en la fila a 1. (asi borra los snn recientemente operados)
+	* Los Super Nodos Normales de 2 Conexiones pierden una conexion para la siguiente iteracion.
+
+4) Regresar a 2 y Repetir Hasta que no hayan mas SNN de dos conexiones.

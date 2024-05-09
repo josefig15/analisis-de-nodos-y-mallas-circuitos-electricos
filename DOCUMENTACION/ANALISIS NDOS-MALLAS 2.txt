@@ -1,0 +1,94 @@
+ANALISIS DE NODOS
+
+	* Ley de Corriented de Kirchoff (LCK)
+		- La Sumatoria de corrientes que pasan por el Nodo es Cero.
+		
+		LCK NODO
+			IR1 + IR2 + IR3 + I1 + I2 + I3 + ... = 0
+		
+		DONDE: 
+			IR1 + IR2 + IR3 + ...	Corrientes de los Resistores.
+			I1 + I2 + I3 + ...		Corrientes de Fuentes de Corriente.
+		
+	* Convencion de direccion de las corrientes de Los Nodos Para Realizar LVK:
+		- Se asume que las corrientes de los Resistores salen del Nodo. 
+		
+	* Convencion Resistores:
+		- Utilizando la Convencion pasiva de signos:
+			- La Tension del Nodo donde entra La correinte es positivo. 
+			- La Tension del Nodo donde sale La correinte es Negativa.
+			
+	* Convencion Fuentes de Corriente:
+		- Si la Fuente de corriente entra al Nodo a Analizar, entonces es Negativa. 
+		- Si la Fuente de corriente sale  al Nodo a Analizar, entonces es Positiva. 
+		
+	* SUMATORIA DE CORRIENTES DE RESISTORES:
+		- En el miembro izquierdo de la ecuacion se escribe la sumatoria de corrientes de los Resistores del Nodo.
+		- Las corrientes de los resistores se claculan con ley de Ohm. IR = (VN+ - VN-)/R.
+		- Despues de Operar y ordenar los terminos que conforman la sumatoria de corrientes de los resistores se concluye que:
+			- La sumatoria de las Inversas de las Resistencias conectadas al Nodo de Analisis es Positiva 
+			- La sumatoria de las Inversas de las Resistencias conectadas al Nodo de No Analisis es Negativa.
+			
+	* SUMATORIA DE CORRIENTES DE FUENTES DE CORRIENTE:
+		- En el miembro derecho de la ecuacion se escriben los LCK de las fuentes de Corriente.
+		- al Pasar al miembro derecho de la ecuacion, Las Fuentes de Corriente cambian de signo.
+		- Se escribe la sumatoria de fuentes de coorriente en el miembro derecho de la ecuacion.
+			- El valor de la Fuente de Corriente que Entra al Nodo de Analisis es Positiva.
+			- El valor de la Fuente de Corriente que Sale del Nodo de Analisis es Negativa.
+			
+	* FORMA DE LA ECUACION LCK DEL NODO DE ANALISIS:
+	
+		MIEMBRO IZQUIERDO		MIEMBRO DERECHO
+		IR1 + IR2 + IR3 + ... = I1 + I2 + I3 + ..
+		
+		MIEMBRO IZQUIERDO:	Corrientes de los resistores.
+		MIEMBRO DERECHO:	Corrientes de Fuentes de Corriente.
+		
+		
+------------------------------------------------------------------------------------------------------------------------------------------
+
+ANALISIS DE MALLAS
+
+	* Ley de Voltajes de Kirchoff (LVK)
+		- La Sumatoria de Tensiones de una trayectoria cerrrada es cero.
+		
+		LCK NODO
+			VR1 + VR2 + VR3 + V1 + V2 + V3 + ... = 0
+		
+		DONDE: 
+			VR1 + VR2 + VR3 + ...	Diferencia de Tension de los Resistores.
+			V1 + V2 + V3 + ...		Tensiones de Fuentes de Tension.
+		
+	* Convencion de Sentido Corrientes de Malla Para Realizar LVK:
+		- Se asume que las corrientes de malla en el circuito son en sentido horario.
+		
+	* Convencion Resistores:
+		- Utilizando la Convencion pasiva de signos:
+			- Se asume que La corriente de la malla a anilzar entra en la terminal positiva del resistor.
+			- Se asume que La corriente de la malla no a analizar entra en la terminal negativa del resistor. 
+		
+	* Convencion Fuentes de Voltaje:
+		- Si la corriente de malla entra terminal positiva, el signo de la fuente de voltaje es positivo.
+		- Si la corriente de malla entra terminal negativa, el signo de la fuente de voltaje es negativo.
+		
+	* SUMATORIA DE TENSIONES RESISTORES:
+		- En el miembro izquierdo de la ecuacion se escribe la sumatoria de tensiones de los Resistores de la Malla.
+		- Las Tensiones de los resistores se calculan con ley de Ohm. VR = (IM+ - IM-)*R.
+		- Despues de Operar y ordenar los terminos que forma la sumatoria de tensiones de los resistores se concluye que:
+			- La sumatoria de las Resistencias dentro de la Malla de Analisis es Positiva. 
+			- La sumatoria de las Resistencias dentro de la Malla de no Analisis es Negativa.
+			
+	*  SUMATORIA DE TENSIONES FUENTES DE TENSION:
+		- En el miembro derecho de la ecuacion se escriben los LVK de las fuentes de Tension.
+		- al Pasar al miembro derecho de la ecuacion, Las Fuentes de Tension cambian de signo.
+		- Se escribe la sumatoria de fuentes de Tension en el miembro derecho de la ecuacion.
+			- El valor de la Fuente de Tension es Negativa cuando la corrinete de malla entra en terminal positiva.
+			- El valor de la Fuente de Tension es Positiva cuando la corrinete de malla entra en terminal Negativa.
+			
+	* FORMA DE LA ECUACION LVK DE LA MALLA DE ANALISIS:
+	
+		MIEMBRO IZQUIERDO		MIEMBRO DERECHO
+		VR1 + VR2 + VR3 + ... = V1 + V2 + V3 + ..
+		
+		MIEMBRO IZQUIERDO:	Tensiones de los resistores.
+		MIEMBRO DERECHO:	Tensiones de Fuentes de Tension.

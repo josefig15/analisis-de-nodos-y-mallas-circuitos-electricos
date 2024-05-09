@@ -1,0 +1,50 @@
+		
+	
+	SNN			MATRIZ CONEXIONES					MATRIZ INGRESO										
+	L3{L}			MAT[B]{ L x Q }						MAT[A]{ L x 4 }							
+									
+				N1	N2	N3	..	NQ				T	M	N+	N-										
+	1┌ 0 ┐ ->	1┌	-	-	-	-	-	┐ 	 <--	1┌	1	R	R+	R-	┐		
+	2| 0 | ->	2| 	-	-	-	-	- 	| 	 <--	2|	2	I	I+	I-	|	
+	3| 0 | ->	3| 	-	-	-	-	- 	| 	 <--	3|	3	V	V+	V-	|
+	4| 0 | ->	4| 	-	-	-	-	- 	| 	 <--	4|	-	-	-	-	|
+	:| . | ->	:| 	-	-	-	-	- 	| 	 <--	:|	-	-	-	-	|
+	L└ 0 ┘ ->	L└ 	-	-	-	-	- 	┘ 	 <--	L└	-	-	-	-	┘
+				1	2	3	..	Q				1	2	3	4
+				
+				 [	0 	0	0	..	0	] L2	
+
+
+	SNS			MATRIZ ECUACIONES 1								
+	L2{ Q }			MAT[C]{ Q x Q + 1 }							
+												
+				N1	N2	N3	..	NQ	I / V					
+	1┌ 0 ┐ ->	1┌	-	-	-	-	-	 - 	┐ 													
+	2| 0 | ->	2|	-	-	-	-	-	 - 	| 								
+	3| 0 | ->	3|	-	-	-	-	-	 - 	| 							
+	:| . | ->	:|	-	-	-	-	-	 - 	| 	
+	Q└ 0 ┘ ->	Q└	-	-	-	-	-	 - 	┘ 						
+				1	2	3	..	Q	Q+1								
+											
+
+VARIABLES GLOBALES
+	L numero de Elementos
+	Q Numero de Ecuaciones
+
+RELACIONES:
+	FIL MAT[A] "INGRESO"	= FIL MAT[B] "CONEXIONES"	
+	COL MAT[B] "CONEXIONES" = FIL MAT[C] "ECUACION"	 
+
+MATRIZ A "INGRESO"
+	- En esta matriz se escriben los elementos que componen el circuito.
+	- El numero de Filas es igual al numero de elementos.
+	
+Matriz B "CONEXIONES"
+	- Cada columna representa un Nodo del circuito.
+	- Tiene el mismo numero de filas que la Matriz A.
+	- Se escribe 1 en las columnas pertenecientes a la fila de cada elemento del circuito.
+	
+MATRIZ C "ECUACIONES"
+	- El numero de filas es igual al numero de Nodos.
+	- El numero de Columnas es igual al numero de Nodos mas Uno.
+	- Se escriben las ecuaciones LCK de los Nodos.

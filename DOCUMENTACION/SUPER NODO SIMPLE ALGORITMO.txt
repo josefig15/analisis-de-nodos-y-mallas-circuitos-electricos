@@ -1,0 +1,80 @@
+
+Convencion entre los dos tipos de super nodos:
+
+	* SN Simple tiene prioridad sobre los SN normales.
+
+	* Primero se escriben las Ecuaciones de SN simple.
+
+	* En el vector de SNS, se escribe 1, indicando que en esa fila se escribio EC SNS
+
+	* Un SNS conectado a SNN, lo convierte en SNS tambien, escribiendo un 1 en el vector de SNS.
+
+	* un SNN con SNS ya no necesita Ecuacion LCK SN.
+
+	* MO NECESITA ESCRIBIRSE EN MATRIZ CONEXIONES
+
+ALGORITMO:
+	SUPER NODOS SIMPLES
+	* Se busca los sn que tienen un terminal a CERO
+
+	* Escribir primero ecuaciones sn simples en la fila del nodo diferente de cero en la matriz ecuacion.
+
+	* crear un vector de la misma longitud del numero de filas de la matriz ecuacion (numero de filas = numero de nodos)
+
+	* cada vez que se escriba la ecuacion de sn simple, se pone un 1 en la fila vector sn simples.
+
+	* si un sn simple esta conectado a otro sn normal, este tambien se convierte en sn simple
+
+	* NO PUEDEN HABER DOS SUPER NODOS SIMPLES CONECTADOS EN EL MISMO NODO (FUENTES DE TENSION EN PARALELO)
+
+
+REGLAS:
+	* solo puede haber un SNN entre dos NODOS, por lo tanto, el numero total de SNN en un circuito depende del numero de NODOS
+	 	
+		NUMERO MAX SNN = NUMERO NODOS - 1	(tienen prioridad)
+
+	* si no hay SNN, El numero de SNS es igual al numero de NODOS si no hay SNN
+		
+		NUMERO MAX SNS = NUMERO NODOS
+
+	* si  hay SNN  , El numero de SNS es igual al numero de NODOS si no hay SNN
+
+		NUMERO MAX SNS = NODOS - NUMERO SNN 
+
+	Error 1: Elemento con positivo y negativo en cero 
+	Error 2: Elemento con Positivo y Negativo en mismo Nodo
+	Error 3: Exceso de Super Nodos
+	
+
+	Ejemplo: Para Q = 5 NODOS
+
+		NUMERO MAX SNN		= 5 - 1 = 4 SNN		(tienen prioridad)	
+		
+		NUMERO SNN		= 4 SNN 		(NUMERO SNN <= NUMERO MAX SNN )
+
+		SI NUMERO SNN =/ 0 
+			NUMERO MAX SNS = NODOS - NUMERO SNN = 5 - 4 = 1 SNS
+
+		SI NUMERO SNN == 0 
+			NUMERO MAX SNS = NODOS
+
+		NUMERO MAX SNS		= 1 SNS
+		
+		NUMERO SNS		= 1 SNS 		(NUMERO SNS <= NUMERO MAX SNS )
+
+
+	Ejemplo: Para Q = 5 NODOS
+
+		NUMERO MAX SNN		= 5 - 1 = 4 SNN		(tienen prioridad)	
+		
+		NUMERO SNN		= 2 SNN 		(NUMERO SNN <= NUMERO MAX SNN )
+
+		SI NUMERO SNN =/ 0 
+			NUMERO MAX SNS = NODOS - NUMERO SNN = 5 - 2 = 3 SNS
+
+		SI NUMERO SNN == 0 
+			NUMERO MAX SNS = NODOS = 5
+
+		NUMERO MAX SNS		= 3 SNS
+		
+		NUMERO SNS		= 1 SNS 		(NUMERO SNS <= NUMERO MAX SNS )

@@ -1,0 +1,82 @@
+
+clasificacion principal de super nodos:
+	1) Super Nodo Simple:
+		* Tiene una terminal a tierra.
+		* Dos sub-tipos (Dependientes de la polaridad):
+			- Negativo conectado a tierra.
+			- Positivo conectado a tierra.
+			
+	2) Super Nodo Normal:
+		* Ninguna de las dos terminales estan a tierra.
+		* Tres subtipos (Independientes de la polaridad):
+			- No conectado a otro Super Nodo Normal (Cero conexiones).
+			- Una terminal   conectada a otro Super Nodo Normal (Una conexion)
+			- Dos terminales conectada a otro super Nodo Normal (Dos conexiones).
+			
+Dos tipos principales de super nodos:
+
+	1) Super nodo simple (SNS):
+		* Es un super nodo con una terminal a tierra
+			- condicion	( P!=0 AND N==0 ) OR ( P==0 AND N!=0 )	
+		
+		* Numero de ecuaciones: 1
+			- Ecuacion del super nodo (EC SN)
+
+		* convencion de escritura ecuaciones:
+			- se escribe en la fila de Mat[C] correspondiente al nodo diferente de 0.
+		
+	
+	2) Super nodo normal (SNN):
+		* Es un super nodo con ninguna terminal a tierra.
+			-condicion	( P=/0 AND N/=0 ) 
+		
+		* Numero de ecuaciones: 2
+			- Ecuacion del super nodo (EC SN)
+			- Ecuacion LCK super nodo (LCK SN)
+		
+		* convencion de escritura ecuaciones:
+		
+			* Cuando hay 2 conexiones a otro Super Nodo Normal:
+				- No se opera. para la siguiente iteracion revisar si cambia numero de conexiones.
+			
+			* Cunado hay 1 conexion a otro Super Nodo Normal
+				- Ecuacion del Super Nodo 			->	se escribe en la fila de Mat[C] correspondiente al nodo sin una conexion a otro SNN. 
+				- Sumatoria de Filas del Super Nodo ->  se escribe en la fila de Mat[C] correspondiente al nodo con una conexion a otro SNN.
+		
+			* Cunado hay 0 conexion a otro Super Nodo Normal
+				- Ecuacion del Super Nodo 			->	se escribe en la fila de Mat[C] correspondiente al nodo Positivo.
+				- Sumatoria de Filas del Super Nodo ->  se escribe en la fila de Mat[C] correspondiente al nodo Negativo.
+
+
+Interaccion entre los dos tipos de super nodos:
+
+	* Los Super Nodos Simples se operan primero porque tiene prioridad sobre los Super Nodos normales.
+	* Primero se escriben las Ecuaciones de SN simple.
+	* En el vector de SNS, se escribe 1, indicando que en esa fila se escribio EC SNS
+	* Un SNS conectado a SNN, lo convierte en SNS tambien, escribiendo un 1 en el vector de SNS.
+	* un SNN con SNS en uno de sus nodos ya no necesita Ecuacion LCK SN.
+
+
+ALGORITMO SUPER NODOS SIMPLES:
+	
+	* Los Super Nodos Simples no se escriben en la matriz B de conexiones.
+	* Se crea un vector L2 de igual longitud que el numero de nodos para indicar las posiciones de los super nodos simples. 
+	* Se busca un super nodo simple en la matriz A ingreso.
+	* Al encontrar un Super Nodo Simple, se escribe 1 en la posicion del nodo diferente de cero dentro de L2.
+	* Se escribe la ecuacion del super nodo simple en la fila del nodo diferente de cero en la matriz C ecuacion.
+	* este proceso se repite hast recorrer toda la matriz A ingreso.
+
+
+ALGORITMO SUPER NODOS NORMALES:
+	* Necesita haber borrado conexiones Resistores y Fuentes de Corriente en matriz B con anterioridad.
+	* la matriz B conexiones solo debe tener las conexiones de los Super Nodos Normales.
+	* Se crea un vector L3 de igual longitud que el numero de filas de Matriz A ingreso, para indicar posiciones de super nodos normales operados. 
+	* Se busca un Super Nodo Normal en la matriz A ingreso.
+	* Se define el numero de conexiones del super nodo normal( 0 , 1 o 2 Conexiones).
+	* Al encontrar un super Nodo Normal de dos conexiones, no lo opera y solo incrementa el contador de super nodos normales de dos conexiones.
+	* Al encontrar un Super Nodo Normal de cero o una conexion, escribe 1 en la fila de L3 donde se encuentra el super nodo normal.
+	* Se opera el super nodo normal de cero o una conexion.
+	* si un super nodo simple esta conectado a un super nodod normal, este se convierte en super nodo simple.
+	* Se borra las conexiones de los Super nodos ya operados en las posiciones de L3.
+	* Los Super Nodos Normales no operados pierden una conexion.
+	* El proceso se repite hasta que ya no encuentre un super nodo normal de dos conexiones.
