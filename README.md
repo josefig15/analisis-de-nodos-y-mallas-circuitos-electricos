@@ -25,6 +25,7 @@ Gracias a la propiedad de la Dualidad de los circuitos Electricos, los mismos pr
 4) Asumir una polaridad cualquiera para los resistores y marcarlos con + el positivo y - para el negativo. (Guia para Identificar la Polaridad de Los Nodos).
 
 ### COMO AJUSTAR EL CIRCUITO USANDO ANALISIS DE MALLAS:
+Asegurarse que el circuito no tenga elementos superpuestos uno sobre otros para poder describirse con mallas (Red Plana).
 1) Contar El Numero Total de Elementos que Componene el Circuito (Resistores, Fuentes de Voltaje y Fuentes de Corriente).
 2) Dibujar todas las mallas del circuito en sentido Horario y Asignarles un Numero.
 3) Contar El Numero de Mallas dentro del Circuito. 
