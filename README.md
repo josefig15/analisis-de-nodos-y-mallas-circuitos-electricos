@@ -45,7 +45,8 @@ Despues de Ingresar los datos del circuito, el Programa pregunta los datos corre
 5) Pregunta el Nodo/Malla Conectado a la Terminal Negativa del Elemento.
 
 Los datos quedan almacenados en la MAtriz A de la siguiente manera:
-	MATRIZ A  ANALISIS DE NODOS
+
+MATRIZ A  ANALISIS DE NODOS
  
     	T  	M	N+      N-		
 	1 ┌	1	R	R+ 	R-	┐	RESISTOR		
@@ -55,7 +56,7 @@ Los datos quedan almacenados en la MAtriz A de la siguiente manera:
 	L └ 	-	-	-	 -	┘
 		1	 2	3	 4
 
-  MATRIZ A  ANALISIS DE MALLAS
+MATRIZ A  ANALISIS DE MALLAS
 
       	T  	M	M+       M-
 	1 ┌	1	R	R+ 	R-	┐	RESISTOR		
