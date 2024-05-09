@@ -1,0 +1,84 @@
+BASE TEORICA SUPER NODOS.
+ 
+CONVENCION DIRECCION DE LAS CORRIENTES ANALISIS DE NODOS:
+ * Las corrientes que salen  del Nodo se consideran Positivas.
+ * Lss corrientes que entran del Nodo se consideran Negativas.	
+ 
+MANEJO DE SUPERNODOS SEGUN EL METODO DE ANALISIS DE NODOS:
+ * Se escribe la ecuacion LCK del Super Nodo. 
+	- Se asume que la direccion de la corriente es positiva en los resistores conectados en los Nodos de la fuente de Voltaje.
+	- Se suman todas las corrientes de las terminales de la fuente de Voltaje.
+ 
+ * Se escribe la ecuacion del Super Nodo
+	- LA diferencia de potencial entre las dos terminales es igual al valor de la fuente de Voltaje.
+	- El nodo conectado a la terminal Positiva del Super Nodo es Positivo.
+	- El nodo conectado a la terminal Negativa del Super Nodo es Negativa.
+
+DEDUCCION DE COMO ENCONTRAR EL LCK DEL SUPER NODO
+	
+	NUMERO DE NODOS: 2
+	NUMERO DE ELEMENTOS 5
+
+					I<---
+				N1	V1 5V	N2			
+	* - - - - - * - (+ -) - * - - - - - *
+	|			|			|			|
+	|			|			|			|
+	|			|			|			|
+	< 			< 			<			<
+	< R1		< R2		< R3		< R4
+	< 1			< 1			< 1			< 1
+	|			|			|			|
+	|			|			|			|
+	|			|			|			|
+	V			V			V			V
+	0V			0V			0V			0V
+	
+* La Variable I es la corriente que circula por el Super Nodo.
+* La Corriente I del Super Nodo No se puede calcular directamente.
+
+ECUACION LCK N1
+	(N1 - 0V)/R1 + (N1 - 0V)/R2 - I = 0
+	Sustituyendo:
+	N1 + N1 - I = 0
+	2*N1 - I = 0 		(1)	
+	
+ECUACION LCK N2	
+	(N2 - 0V)/R3 + (N2 - 0V)/R4 + I = 0
+	Sustituyendo:
+	N2 + N2 + I = 0
+	2*N2 + I = 0 		(2)
+	
+Despejando I en (1)
+	I = 2*N1			
+	
+Sustituyendo I en (2)
+	2*N2 + (2*N1) = 0	(3) LCK SUPER NODO
+
+Ecuacion del Super Nodo
+	N1 - N2 = 5V		(4)
+	
+Sistema de Ecuaciones
+	2*N2 + 2*N1 = 0		(3)
+	N1 - N2 = 5V		(4)
+	
+CONCLUSION:
+	EL LCK DEL SUPER NODO (3) ES LA SUMATORIA DE LAS ECUACIONES LCK DE CADA NODO DEL SUPER NODO.
+
+USANDO MATRICES PARA ESCRIBIR LAS ECUACIONES LCK DE CADA NODO DEL SUPER NODO.
+	
+	LCK N1	2*N1 = +I
+	LCK N2	2*N2 = -I 
+	
+	1[	2	0	+1 ] -> LCK N1
+	2[	0	2 	-1 ] -> LCK N2
+	
+REALIZANDO SUMATORIA FILA 1 Y FILA 2 Y ESCRIBIENDO RESULTADO FILA 1
+	1[	2	2	0 ]	-> LCK N1
+	2[	0	0 	0 ] -> LCK N2
+
+	- Se Elimina la Incognita I.
+	- Como la misma corriente I que Entra es la misma corriente I que sale, se puede ignorar.
+	
+CONCLUSION:
+	EL LCK DEL SUPER NODO (3) ES LA SUMATORIA DE LAS FILAS CORRESPONDIENTES A LOS LCK DE LOS NODOS DEL SUPER NODO.
