@@ -16,7 +16,7 @@ Gracias a la propiedad de la Dualidad de los circuitos Electricos, los mismos pr
 	
 ### INSTRUCCIONES DE USO OCTAVE:
 1) Poner todos los script en un solo directorio.
-2) Ejecutar el escript "nodos0.m". (contiene el orden de operacion de cada programa).
+2) Ejecutar el escript "nodos_mallas_0.m". (contiene el orden de operacion de cada programa).
 
 ### COMO AJUSTAR EL CIRCUITO USANDO ANALISIS DE NODOS:
 1) Contar El Numero Total de Elementos que Componene el Circuito (Resistores, Fuentes de Voltaje y Fuentes de Corriente).
