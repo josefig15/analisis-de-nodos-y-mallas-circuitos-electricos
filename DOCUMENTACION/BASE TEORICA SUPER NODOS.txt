@@ -19,20 +19,20 @@ DEDUCCION DE COMO ENCONTRAR EL LCK DEL SUPER NODO
 	NUMERO DE NODOS: 2
 	NUMERO DE ELEMENTOS 5
 
-					I<---
-				N1	V1 5V	N2			
-	* - - - - - * - (+ -) - * - - - - - *
-	|			|			|			|
-	|			|			|			|
-	|			|			|			|
-	< 			< 			<			<
-	< R1		< R2		< R3		< R4
-	< 1			< 1			< 1			< 1
-	|			|			|			|
-	|			|			|			|
-	|			|			|			|
-	V			V			V			V
-	0V			0V			0V			0V
+ 				 I<---
+			N1	  V1 5V		N2			
+	* - - - - - - - * - - - - (+ -) - - - - * - - - - - - - *
+	|		|			|		|
+	|		|			|		|
+	|		|			|		|
+	< 		< 			<		<
+	< R1		< R2			< R3		< R4
+	< 1		< 1			< 1		< 1
+	|		|			|		|
+	|		|			|		|
+	|		|			|		|
+	V		V			V		V
+	0V		0V			0V		0V
 	
 * La Variable I es la corriente que circula por el Super Nodo.
 * La Corriente I del Super Nodo No se puede calcular directamente.
@@ -74,7 +74,7 @@ USANDO MATRICES PARA ESCRIBIR LAS ECUACIONES LCK DE CADA NODO DEL SUPER NODO.
 	2[	0	2 	-1 ] -> LCK N2
 	
 REALIZANDO SUMATORIA FILA 1 Y FILA 2 Y ESCRIBIENDO RESULTADO FILA 1
-	1[	2	2	0 ]	-> LCK N1
+	1[	2	2	0 ] -> LCK N1
 	2[	0	0 	0 ] -> LCK N2
 
 	- Se Elimina la Incognita I.
