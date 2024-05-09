@@ -38,9 +38,9 @@ clear
 nodos_mallas_1_2 % Programa 1 Ingreaso de Datos Automatico
 nodos_mallas_2 % Programa 2 Conexiones
 nodos_mallas_3 % Programa 3 Resistores
-nodos_mallas_4 % Programa 4 F.Corriente
-nodos_mallas_5 % Programa 5 F.Voltaje (Super Nodos Simple)
-nodos_mallas_6 % Programa 6 F.Voltaje (Super Nodos Normal)
+nodos_mallas_4 % Programa 4 Sumatoria Fuentes de Corriente/Fuentes de Voltaje
+nodos_mallas_5 % Programa 5 (Super Nodos/Mallas Simple)
+nodos_mallas_6 % Programa 6 (Super Nodos/Mallas Normal)
 
 rref(matC)
 
