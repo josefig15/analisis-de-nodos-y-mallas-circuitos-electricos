@@ -1,18 +1,21 @@
 // *** Proceso Para Crear MAtriz A ***
 : Disp "1) Nodos"
 : Diso "2) Mallas"
-: Input O                 // Variable Tipo de Analisis.
-: Disp "NUM ELMNT?"				// Mensaje: NUMERO DE ELEMENTOS DEL CIRCUITO?
-: Input L						      // Varaible Numero de Elementos.
-: Disp "NUM NODOS?" 			// Mensaje: NUMERO DE NODOS? 
-: Input Q						      // Varaible Numero de Nodos.
+: Input O 			// Variable Tipo de Analisis.
+: Disp "NUM ELMNT?"		// Mensaje: NUMERO DE ELEMENTOS DEL CIRCUITO?
+: Input L			// Varaible Numero de Elementos.
+: If O == 1 
+	: Disp "NUM NODOS?" 	// Mensaje: NUMERO DE NODOS? 
+: If O == 2
+	: Disp "NUM MALLAS?"	// Mensaje NUMERO DE MALLAS?
+: Input Q			// Varaible Numero de Nodos/Mallas.
 
-: {L,4} -> Dim([A])				// Matriz de Ingreso.
-: Fill(0,[A])					    // Se Borra contenido Previo Matriz.
+: {L,4} -> Dim([A])		// Matriz de Ingreso.
+: Fill(0,[A])			// Se Borra contenido Previo Matriz.
 	
 // *** Proceso Captura individual de cada Elemento. ***
-: 0 -> U						      // Contador Super Nodo Simple (SNS)
-: 0 -> D						      // Contador Super Nodo Normal (SNN)
+: 0 -> U			// Contador Super Nodo Simple (SNS)
+: 0 -> D			// Contador Super Nodo Normal (SNN)
 : For(F,1,L)
 	: Disp "NUM ELMNT",F
 	: Disp "TIPO ELMNT"
@@ -35,25 +38,25 @@
 	: Input N
 	: N -> [A](F,4)
 	
-	: P == N -> E				//  Indicador Positivo y Negativo Iguales
-	: P == 0 AND N == 0 -> Z	//  Indicador Positivo y Negativo en cero
-	: P != 0 AND N == 0 -> I	// 	Indicador Positivo diferente de Cero 
-	: P == 0 AND N != 0 -> J	// 	Indicador Negativo diferente de Cero 
-	: P != 0 AND N != 0 -> K	//	Indicador Positivo y Negativo diferente de Cero 
+	: P == N -> E			// Indicador Positivo y Negativo Iguales
+	: P == 0 AND N == 0 -> Z	// Indicador Positivo y Negativo en cero
+	: P != 0 AND N == 0 -> I	// Indicador Positivo diferente de Cero 
+	: P == 0 AND N != 0 -> J	// Indicador Negativo diferente de Cero 
+	: P != 0 AND N != 0 -> K	// Indicador Positivo y Negativo diferente de Cero 
 	
-	: If E OR Z 				//	Cuando Positivo y Negativo Iguales o Positivo y Negativo en Cero
+	: If E OR Z 			// Cuando Positivo y Negativo Iguales o Positivo y Negativo en Cero
 	: Then
-		: Disp "Error 1", F		// 		Error 1: Dos Nodos en cero o Dos Nodos Iguales en Fila L
-		: Stop					//		Detiene el programa		
+		: Disp "Error 1", F	// Error 1: Dos Nodos en cero o Dos Nodos Iguales en Fila L
+		: Stop			// Detiene el programa		
 	: End 
 	
 	// *** Proceso contar tipo de Super Nodo ***
-	: If T == 3					// 	TIPO 3: Fuente Voltaje
+	: If T == 3				// TIPO 3: Fuente Voltaje
 	: Then	
-		: If I OR J				//	Cuando es Super Nodo Simple
-			: U + 1 -> U 		//		Incrementa contador SNS
-		: If K == 1				//	Cuando es Super Nodo Normal
-			: D + 1 -> D		//		Incrementa contador SNN
+		: If I OR J			// Cuando es Super Nodo Simple
+			: U + 1 -> U 		// Incrementa contador SNS
+		: If K == 1			// Cuando es Super Nodo Normal
+			: D + 1 -> D		// Incrementa contador SNN
 	: End
 	
 : End
@@ -61,19 +64,19 @@
 // *** PROCESO CALCULO PROPIEDADES CIRCUITO ***
 : Q - 1 -> G					// Numero Maximo SNN (G)
 	
-: If D > G						// Cuando Numero SNN (D) es mayor que Numero maximo SNN (G)
+: If D > G					// Cuando Numero SNN (D) es mayor que Numero maximo SNN (G)
 : Then
-	: Disp "Error 2"			//		Error 2: Exceso de Super Nodos 
+	: Disp "Error 2"			// Error 2: Exceso de Super Nodos 
 	: Stop
 :End
 								
 : If D != 0	AND D <= G			// Cuando Numero SNN (D) != 0 && Numero SNN (D) <= numero maximo SNN (G)
 	: Q - D -> H				// Numero maximo SNS (H) = Numero Nodos (Q) - Numero SNN (D)
 
-: If D == 0						// Cuando Numero SNN (D) == 0
-	: Q -> H					// Numero maximo SNS (H) = Numero Nodos (Q)
+: If D == 0					// Cuando Numero SNN (D) == 0
+	: Q -> H				// Numero maximo SNS (H) = Numero Nodos (Q)
 
-: If U > H						// Cuando Numero SNS (U) > numero maximo SNS (H)
+: If U > H					// Cuando Numero SNS (U) > numero maximo SNS (H)
 : Then
 	: Disp "Error 2"			// Error 2: Exceso de Super Nodos 			
 	: Stop
