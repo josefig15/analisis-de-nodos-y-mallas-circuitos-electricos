@@ -20,8 +20,8 @@ Gracias a la propiedad de la Dualidad de los circuitos Electricos, los mismos pr
 
 ### COMO AJUSTAR EL CIRCUITO USANDO ANALISIS DE NODOS:
 1) Contar El Numero Total de Elementos que Componene el Circuito (Resistores, Fuentes de Voltaje y Fuentes de Corriente).
-2) Designar un nodo 0 de referencia, este nodo tendra un tension de 0v. 
-3) Marcar con un numero todos los demas nodos que no son el nodo de referencia.
+2) Designar un nodo 0 de referencia y asignar un Numero a cada Nodo.
+3) Contar El Numero de Nodos dentro del Circuito. 
 4) Asumir una polaridad cualquiera para los resistores y marcarlos con + el positivo y - para el negativo. (Guia para Identificar la Polaridad de Los Nodos).
 
 ### COMO AJUSTAR EL CIRCUITO USANDO ANALISIS DE MALLAS:
