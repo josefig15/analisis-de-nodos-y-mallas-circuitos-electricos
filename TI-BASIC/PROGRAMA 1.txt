@@ -19,11 +19,11 @@
 : For(F,1,L)
 	: Disp "NUM ELMNT",F
 	: Disp "TIPO ELMNT"
-	: If O == 1
-      : Disp "1)R 2)I 3)V"
-  : If O == 2
-      : Disp "1)R 2)V 3)I"
-  : Input T
+	: If O == 1		// Analisis de Nodos
+      		: Disp "1)R 2)I 3)V"
+  	: If O == 2		// Analisis de Mallas
+      		: Disp "1)R 2)V 3)I"
+	: Input T
 	: T -> [A](F,1)
 	
 	: Disp "MGNTD?"
