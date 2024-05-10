@@ -30,11 +30,11 @@
 	: Input M
 	: M -> [A](F,2)
 	
-	: Disp "NODO +"
+	: Disp "N+/M+"
 	: Input P
 	: P -> [A](F,3)
 	
-	: Disp "NODO -"
+	: Disp "N-/M-"
 	: Input N
 	: N -> [A](F,4)
 	
