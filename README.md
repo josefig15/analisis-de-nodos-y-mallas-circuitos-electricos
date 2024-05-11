@@ -12,7 +12,7 @@ Gracias a la propiedad de la Dualidad de los circuitos Electricos, los mismos pr
 
 ### INSTRUCCIONES DE USO CALCULADORA TI-83/84:
 1) Ingresar individualmente cada programa en la calculadora y respetar el numero del programa, este numero corresponde al orden de operacion.
-2) Ejecutar el programa "PROGRAMA 0 ORDEN DE EJECUCION.txt"
+2) Ejecutar el programa "PROGRAMA 0.txt"
 	
 ### INSTRUCCIONES DE USO OCTAVE:
 1) Poner todos los script en un solo directorio.
