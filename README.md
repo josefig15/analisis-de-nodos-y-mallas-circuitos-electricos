@@ -47,30 +47,30 @@ Despues de Ingresar los datos del circuito, el Programa pregunta los datos corre
 
 Los datos quedan almacenados en la MAtriz A de la siguiente manera:
 
-MATRIZ A  ANALISIS DE NODOS
+	MATRIZ A  ANALISIS DE NODOS
  
     	T  	M	N+      N-		
-	1 ┌	1	R	R+ 	R-	┐	RESISTOR		
-	2 |	2	I	I+ 	I-	|	FUENTE INDEPENDIENTE DE CORRIENTE 
-	3 |	3	V	V+ 	V- 	|	FUENTE INDEPENDIENTE DE VOLTAJE
+	1 ┌	1	R	R+ 	 R-	┐	RESISTOR		
+	2 |	2	I	I+ 	 I-	|	FUENTE INDEPENDIENTE DE CORRIENTE 
+	3 |	3	V	V+ 	 V- 	|	FUENTE INDEPENDIENTE DE VOLTAJE
 	: |	-	-	-	 -	|
 	L └ 	-	-	-	 -	┘
 		1	 2	3	 4
 
-MATRIZ A  ANALISIS DE MALLAS
+	MATRIZ A  ANALISIS DE MALLAS
 
       	T  	M	M+       M-
-	1 ┌	1	R	R+ 	R-	┐	RESISTOR		
-	2 |	2	V	V+ 	V-	|	FUENTE INDEPENDIENTE DE CORRIENTE 
-	3 |	3	I	I+ 	I- 	|	FUENTE INDEPENDIENTE DE VOLTAJE
+	1 ┌	1	R	R+ 	 R-	┐	RESISTOR		
+	2 |	2	V	V+ 	 V-	|	FUENTE INDEPENDIENTE DE CORRIENTE 
+	3 |	3	I	I+ 	 I- 	|	FUENTE INDEPENDIENTE DE VOLTAJE
 	: |	-	-	-	 -	|
 	L └ 	-	-	-	 -	┘
 		1	 2	3	 4
 
-* Columna 1: T Tipo del Elemento
-* Columna 2: M Magnitud
-* Columna 3: N+ Nodo Positivo / M+ Malla Positiva
-* Columna 4: N- Nodo Negativo / M- Malla Negativa.
+	* Columna 1: T Tipo del Elemento
+	* Columna 2: M Magnitud
+	* Columna 3: N+ Nodo Positivo / M+ Malla Positiva
+	* Columna 4: N- Nodo Negativo / M- Malla Negativa.
 	
 Cada fila de la matriz A representa un elemento del circuito.
 El numero de filas de la matriz A es igual al numero de elementos del circuito.	
