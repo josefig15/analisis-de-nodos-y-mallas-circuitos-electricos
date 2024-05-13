@@ -72,9 +72,24 @@ MATRIZ A  ANALISIS DE MALLAS
 * Columna 3: N+ Nodo Positivo / M+ Malla Positiva
 * Columna 4: N- Nodo Negativo / M- Malla Negativa.
 	
-
 Cada fila de la matriz A representa un elemento del circuito.
 El numero de filas de la matriz A es igual al numero de elementos del circuito.	
+
+### INTERPRETACION DE RESULTADOS
+El resultado del analisis queda almacenado en matriz C, donde la tension del Nodo queda en la ultima columna de cada Fila.
+El Numero de fila corresponde al numero del Nodo, por lo tando la fila 1 tiene el resultado del Nodo 1 y asi para todas las demas incognitas.
+
+	MATRIZ C ECUACIONES 								
+	MAT[C]{ Q , Q + 1 }
+ 	Q = Numero Nodos o Mallas/Numero Ecuaciones.
+												
+		N1/M1	N2/M2	N3/M3	..	NQ/MQ	CTE			
+	1┌	-	-	-	-	-	 - 	┐ 	Ecuacion N1/M1 
+	2|	-	-	-	-	-	 - 	| 	Ecuacion N2/M2								
+	3|	-	-	-	-	-	 - 	| 	Ecuacion N3/M3						
+	:|	-	-	-	-	-	 - 	| 	:
+	Q└	-	-	-	-	-	 - 	┘ 	Ecuacion NQ/MQ					
+		1	2	3	..	Q	Q+1		
 
 ### REGLAS SOBRE EL CONTENIDO DE MATRIZ A:
 	- UN ELEMENTO NO PUEDE TENER DOS NODOS CON EL MISMO NUMERO.
