@@ -13,10 +13,12 @@ Gracias a la propiedad de la Dualidad de los circuitos Electricos, los mismos pr
 ### INSTRUCCIONES DE USO CALCULADORA TI-83/84:
 1) Ingresar individualmente cada programa en la calculadora y respetar el numero del programa, este numero corresponde al orden de operacion.
 2) Ejecutar el programa "PROGRAMA 0.txt"
+3) El programa Automaticamente pide el ingreso de datos del circuito.
 	
 ### INSTRUCCIONES DE USO OCTAVE:
 1) Poner todos los script en un solo directorio.
 2) Ejecutar el escript "nodos_mallas_0.m". (contiene el orden de operacion de cada programa).
+3) El programa Automaticamente pide el ingreso de datos del circuito.
 
 ### COMO AJUSTAR EL CIRCUITO USANDO ANALISIS DE NODOS:
 1) Contar El Numero Total de Elementos que Componene el Circuito (Resistores, Fuentes de Voltaje y Fuentes de Corriente).
