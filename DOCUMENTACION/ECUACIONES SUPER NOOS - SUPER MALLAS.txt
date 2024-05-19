@@ -1,40 +1,40 @@
-SUPER NODOS SIMPLE				|	SUPER MALLA SIMPLE
-								|
-	Diferencia de Tension		|	Diferencia de Corriente
-	Referencia Positiva			|	Referencia Positiva
-	Nodo Positivo				|	Malla Entra Negativo
-	(Igual Polaridad)			|	(Igual Direccion)
-								|	
-	Nodo + Diferemte de Cero.	|	Malla + Diferemte de Cero.	
-								|
-		Elemento:				|		Elemento:
-		T	M	N+	N-			|		T	M	M+	M-
-		3	V1	1	0			|		3	I1	1	0
-								|
-		Ecuacion:				|		Ecuacion:
-		N+ - N- = M				|		M- - M+ = M
-		N1 - 0  = V1			|		0  - M1 = I1
-								|
-	Nodo - Diferente de Cero.	|	Malla - Diferemte de Cero.
-								|
-		Elemento:				|		Elemento:
-		T	M	N+	N-			|		T	M	M+	M-
-		3	V1	0	1			|		3	I1	1	0
-								|
-		Ecuacion:				|		Ecuacion:
-		N+ - N- = M				|		M- - M+ = M
-		0  - N1 = V1			|		M1 - 0  = I1
-								|
-SUPER NODO NORMAL				|	SUPER MALLA NORMAl
-								|
-	N+ y N- Diferente de Cero	|		M+ y M- Diferente de Cero
-		Elemento:				|		Elemento:
-		T	M	N+	N-			|		T	M	M+	M-
-		3	V1	1	2			|		3	I1	1	2
-								|
-		Ecuacion:				|		Ecuacion:
-		N+ - N- = M				|		M- - M+ = M
-		N1 - N2 = M				|		M2 - M1 = I1
+SUPER NODOS SIMPLE			|	SUPER MALLA SIMPLE
+					|
+Diferencia de Tension			|	Diferencia de Corriente
+Referencia Positiva			|	Referencia Positiva
+Nodo Positivo				|	Malla Entra Negativo
+(Igual Polaridad)			|	(Igual Direccion)
+					|	
+Nodo + Diferemte de Cero.		|	Malla + Diferemte de Cero.	
+					|
+	Elemento:			|		Elemento:
+	T	M	N+	N-	|		T	M	M+	M-
+	3	V1	1	0	|		3	I1	1	0
+					|
+	Ecuacion:			|		Ecuacion:
+	N+ - N- = M			|		M- - M+ = M
+	N1 - 0  = V1			|		0  - M1 = I1
+					|
+Nodo - Diferente de Cero.		|	Malla - Diferemte de Cero.
+					|
+	Elemento:			|		Elemento:
+	T	M	N+	N-	|		T	M	M+	M-
+	3	V1	0	1	|		3	I1	1	0
+					|
+	Ecuacion:			|		Ecuacion:
+	N+ - N- = M			|		M- - M+ = M
+	0  - N1 = V1			|		M1 - 0  = I1
+					|
+SUPER NODO NORMAL			|	SUPER MALLA NORMAl
+					|
+N+ y N- Diferente de Cero		|		M+ y M- Diferente de Cero
+	Elemento:			|		Elemento:
+	T	M	N+	N-	|		T	M	M+	M-
+	3	V1	1	2	|		3	I1	1	2
+					|
+	Ecuacion:			|		Ecuacion:
+	N+ - N- = M			|		M- - M+ = M
+	N1 - N2 = M			|		M2 - M1 = I1
 
 
 	
