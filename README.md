@@ -54,19 +54,19 @@ Los datos quedan almacenados en la MAtriz A de la siguiente manera:
     	T  	M	N+      N-		
 	1 ┌	1	R	R+ 	 R-	┐	RESISTOR		
 	2 |	2	I	I+ 	 I-	|	FUENTE INDEPENDIENTE DE CORRIENTE 
-	3 |	3	V	V+ 	 V- 	|	FUENTE INDEPENDIENTE DE VOLTAJE
+	3 |	3	V	V+ 	 V- |	FUENTE INDEPENDIENTE DE VOLTAJE
 	: |	-	-	-	 -	|
-	L └ 	-	-	-	 -	┘
+	L └ -	-	-	 -	┘
 		1	 2	3	 4
 
 	MATRIZ A  ANALISIS DE MALLAS
 
-      	T  	M	M+       M-
+      	T  	M	M+   M-
 	1 ┌	1	R	R+ 	 R-	┐	RESISTOR		
 	2 |	2	V	V+ 	 V-	|	FUENTE INDEPENDIENTE DE VOLTAJE 
-	3 |	3	I	I+ 	 I- 	|	FUENTE INDEPENDIENTE DE CORRIENTE
+	3 |	3	I	I+ 	 I- |	FUENTE INDEPENDIENTE DE CORRIENTE
 	: |	-	-	-	 -	|
-	L └ 	-	-	-	 -	┘
+	L └ -	-	-	 -	┘
 		1	 2	3	 4
 
 	* Columna 1: T Tipo del Elemento
@@ -85,14 +85,14 @@ El Numero de fila corresponde al numero del Nodo, por lo tando la fila 1 tiene e
 	MAT[C]{ Q , Q + 1 }
  	Q = Numero Nodos o Mallas/Numero Ecuaciones.
 												
-		N1/M1	N2/M2	N3/M3	..	NQ/MQ	CTE			
-	1┌	-	-	-	-	-	 - 	┐ 	Ecuacion N1/M1 
-	2|	-	-	-	-	-	 - 	| 	Ecuacion N2/M2								
-	3|	-	-	-	-	-	 - 	| 	Ecuacion N3/M3						
-	:|	-	-	-	-	-	 - 	| 	:
-	Q└	-	-	-	-	-	 - 	┘ 	Ecuacion NQ/MQ					
-		1	2	3	..	Q	Q+1		
-
+		N1/M1	N2/M2	N3/M3	..		NQ/MQ	CTE			
+	1┌	-		-		-		-		-	 	- 	┐ 	Ecuacion N1/M1 
+	2|	-		-		-		-		-		- 	| 	Ecuacion N2/M2								
+	3|	-		-		-		-		-	 	- 	| 	Ecuacion N3/M3						
+	:|	-		-		-		-		-	 	- 	| 	:
+	Q└	-		-		-		-		-	 	- 	┘ 	Ecuacion NQ/MQ					
+		1		2		3		..		Q		Q+1		
+	
 ### REGLAS SOBRE EL CONTENIDO DE MATRIZ A:
 	- UN ELEMENTO NO PUEDE TENER DOS NODOS CON EL MISMO NUMERO.
 	- UN ELEMENTO NO PUEDE TEBER DOS NODOS CONECTADOS A LA REFERENCIA (NODO 0).
